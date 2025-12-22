@@ -79,6 +79,10 @@
 }
 
 @theme inline {
+  --font-family-heading: var(--font-heading);
+  --font-family-body: var(--font-body);
+
+  /* TODO :: I won't be needing most of these colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -124,4 +128,99 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@theme {
+  --color-white: oklch(100% 0.00011 271.152);
+  --color-black: oklch(0% 0 0);
+
+  --color-gray-*: initial;
+  --color-gray-400: oklch(77.673% 0.02934 243.295);
+  --color-gray-100: oklch(92.742% 0.01119 243.915);
+
+  --color-blue-*: initial;
+  --color-blue-950: oklch(24.411% 0.04386 217.946);
+
+  --color-pink-*: initial;
+  --color-pink-400: oklch(70.875% 0.234 345.279);
+
+  --color-purple-*: initial;
+  --color-purple-700: oklch(49.653% 0.15566 292.974);
+
+  --color-magenta-*: initial;
+  --color-magenta-400: oklch(74.936% 0.18034 327.165);
+
+  --spacing-0: 0px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-500: 40px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+}
+
+@utility gradient-1-stops {
+  --tw-gradient-stops: var(--color-pink-400), var(--color-purple-700);
+}
+
+@utility gradient-2-stops {
+  --tw-gradient-stops:
+    var(--color-pink-400), oklch(61.287% 0.24231 297.546 / 0);
+}
+
+@utility gradient-3-stops {
+  --tw-gradient-stops:
+    oklch(77.166% 0.14605 224.866), oklch(60.526% 0.20817 256.202);
+}
+
+@utility gradient-4-stops {
+  --tw-gradient-stops: oklch(89.072% 0.14226 93.935), var(--color-pink-400);
+}
+
+/* Text Preset 1 - Poppins SemiBold - 40px - 125% Line Height */
+@utility text-preset-1 {
+  @apply font-family-heading text-[40px] font-semibold leading-[125%];
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+}
+
+/* Text Preset 2 - Poppins SemiBold - 24px - 125% Line Height */
+@utility text-preset-2 {
+  @apply font-family-heading text-2xl font-semibold leading-[125%];
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+}
+
+/* Text Preset 3 - Poppins Regular - 18px - 150% Line Height */
+@utility text-preset-3 {
+  @apply font-family-heading text-lg font-normal leading-[150%];
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+}
+
+/* Text Preset 4 - Open Sans Regular - 18px - 150% Line Height */
+@utility text-preset-4 {
+  @apply font-family-body text-lg font-normal leading-[150%];
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+}
+
+/* Text Preset 5 - Open Sans Regular - 16px - 150% Line Height */
+@utility text-preset-5 {
+  @apply font-family-body text-base font-normal leading-[150%];
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+}
+
+/* Text Preset 6 - Poppins Regular - 12px - 150% Line Height */
+@utility text-preset-6 {
+  @apply font-family-heading text-xs font-normal leading-[150%];
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
 }
