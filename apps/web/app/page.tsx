@@ -1,68 +1,66 @@
-import { Button } from "@workspace/ui/components/button";
+import { Button } from '@workspace/ui/components/button'
+import Image from 'next/image'
+
+export const BG_IMAGES = {
+  desktop: '/bg-desktop.svg',
+  tablet: '/bg-tablet.svg',
+  mobile: '/bg-mobile.svg',
+} as const
 
 export default function Page() {
   return (
-    <>
-      <div className="container mx-auto flex flex-col gap-4 px-4 sm:px-6 lg:px-8">
-        <div className="text-preset-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-          adipisci? Nihil molestias in magnam, tempore voluptatem autem cum
-          optio dicta, quas, ex omnis qui minus animi dolorem obcaecati
-          explicabo? Ea!
-        </div>
-        <div className="text-preset-2">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius et
-          neque ea reprehenderit, provident deserunt in optio ex dolorem quo
-          doloremque error voluptas, ullam amet officia iure voluptatem
-          voluptatum iusto!
-        </div>
-        <div className="text-preset-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum
-          aspernatur dolore aliquam omnis delectus eius ea esse quas fugit, amet
-          quibusdam. Corrupti nesciunt neque alias eos ipsa quos debitis.
-        </div>
-        <div className="text-preset-4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis
-          aspernatur fugiat architecto tempora cumque, perspiciatis ut nemo
-          obcaecati est dicta, necessitatibus odit quidem expedita laboriosam
-          ratione ex libero saepe quo.
-        </div>
-        <div className="text-preset-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-          adipisci? Nihil molestias in magnam, tempore voluptatem autem cum
-          optio dicta, quas, ex omnis qui minus animi dolorem obcaecati
-          explicabo? Ea!
-        </div>
-        <div className="text-preset-6">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis
-          aspernatur fugiat architecto tempora cumque, perspiciatis ut nemo
-          obcaecati est dicta, necessitatibus odit quidem expedita laboriosam
-          ratione ex libero saepe quo.
-        </div>
-      </div>
-      <div className="container mx-auto my-8 flex flex-col gap-4 px-4 sm:px-6 lg:px-8">
-        {/* spacing */}
-        <div className="flex flex-col gap-2">
-          <div className="w-[var(--spacing-0)] bg-pink-400">0</div>
-          <div className="w-[var(--spacing-100)] bg-pink-400">100</div>
-          <div className="w-[var(--spacing-200)] bg-pink-400">200</div>
-          <div className="w-[var(--spacing-300)] bg-pink-400">300</div>
-          <div className="w-[var(--spacing-500)] bg-pink-400">500</div>
-          <div className="w-[var(--spacing-700)] bg-pink-400">700</div>
-          <div className="w-[var(--spacing-800)] bg-pink-400">800</div>
-        </div>
-      </div>
-      <div className="flex min-h-svh items-center justify-center">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className="text-preset-1 font-family-heading text-gray-100">
-            Hello World
-          </h1>
-          <div className="gradient-3-stops h-64 w-full bg-gradient-to-r text-2xl">
-            Test
+    <div className={`
+      grid min-h-screen grid-rows-[1fr_auto] bg-[url('/bg-mobile.svg')] bg-cover
+      px-9 py-10
+      md:gap-500 md:px-20
+      lg:gap-300 lg:bg-[url('/bg-mobile.svg')] lg:px-21 lg:py-16
+    `}
+    >
+      <div className="flex flex-col gap-800">
+        <header>
+          <Image src="/logo.svg" alt="Logo" width={120} height={20} />
+        </header>
+        <div className={`
+          flex flex-col gap-700
+          md:gap-500
+          lg:flex-row lg:gap-700
+        `}
+        >
+          <Image
+            src="/illustration-mockups.svg"
+            alt="Illustration"
+            className="w-full"
+            width={400}
+            height={300}
+          />
+          <div className={`
+            flex flex-col gap-400
+            md:gap-500
+          `}
+          >
+            <div className="flex flex-col gap-300 text-center text-white">
+              <h1 className="text-preset-2">
+                Build The Community Your Fans Will Love
+              </h1>
+              <p className="text-preset-5">
+                Huddle re-imagines the way we build communities. You have a
+                voice, but so does your audience. Create connections with your
+                users as you engage in genuine discussion.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <Button variant="default">Register</Button>
+            </div>
+            {/* <footer className="hidden bg-gray-200 p-4 text-center md:block lg:hidden">
+              <Button variant="default">Footer btn icon</Button>
+            </footer> */}
           </div>
-          <Button size="sm">Button</Button>
         </div>
       </div>
-    </>
-  );
+
+      <footer className="flex justify-end">
+        <Button variant="outline">icon</Button>
+      </footer>
+    </div>
+  )
 }

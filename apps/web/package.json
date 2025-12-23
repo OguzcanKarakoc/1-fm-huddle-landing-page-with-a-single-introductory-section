@@ -30,6 +30,7 @@
     "eslint": "^9.39.1",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.1.11",
     "typescript": "^5.9.3"
   }
 }

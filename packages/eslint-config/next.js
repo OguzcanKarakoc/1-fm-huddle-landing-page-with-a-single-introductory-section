@@ -1,12 +1,13 @@
-import js from "@eslint/js"
-import pluginNext from "@next/eslint-plugin-next"
-import eslintConfigPrettier from "eslint-config-prettier"
-import pluginReact from "eslint-plugin-react"
-import pluginReactHooks from "eslint-plugin-react-hooks"
-import globals from "globals"
-import tseslint from "typescript-eslint"
+import js from "@eslint/js";
+import pluginNext from "@next/eslint-plugin-next";
+import eslintConfigPrettier from "eslint-config-prettier";
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
+import pluginBetterTailwindcss from "eslint-plugin-better-tailwindcss";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
-import { config as baseConfig } from "./base.js"
+import { config as baseConfig } from "./base.js";
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
@@ -18,6 +19,19 @@ export const nextJsConfig = [
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
+  {
+    plugins: {
+      "better-tailwindcss": pluginBetterTailwindcss,
+    },
+    rules: {
+      ...pluginBetterTailwindcss.configs.recommended.rules,
+    },
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "../../packages/ui/src/styles/globals.css",
+      },
+    },
+  },
   {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
@@ -48,4 +62,7 @@ export const nextJsConfig = [
       "react/prop-types": "off",
     },
   },
-]
+  {
+    ignores: ["dist/**", ".next/**"],
+  }
+];
